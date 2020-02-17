@@ -26,6 +26,5 @@ if (isset($_FILES['image'])) {
     $uuid = Uuid::uuid4()->toString();
     $filename = "{$uuid}.{$ext}";
     $filesystem->writeStream($filename, fopen($_FILES['image']['tmp_name'], "rb"), ['visibility' => 'public']);
-    $imageName = $adapter->getRoot() . $filename;
-    echo "$url".substr($imageName,1, strlen($imageName)-1);
+    echo "$url" . $filename;
 }
